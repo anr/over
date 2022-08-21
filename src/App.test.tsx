@@ -8,7 +8,7 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('foo', () => {
+test('async data fetch', async () => {
   window.fetch = jest.fn(() => Promise.resolve({
     ok: true,
     json: () => Promise.resolve(
@@ -26,5 +26,7 @@ test('foo', () => {
 
   render(<App />);
 
+  expect(screen.getByText(/loading/i)).toBeInTheDocument();
   expect(window.fetch).toBeCalled();
+  expect(await screen.findByText(/saxon vase/i)).toBeInTheDocument();
 });

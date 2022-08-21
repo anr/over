@@ -6,10 +6,10 @@ type workProps = {
 
 function Work(props: workProps) {
     return (
-      <div className="Work">
-        <p>Title: {props.title}</p>
-        <p>Origin: {props.origin}</p>
-      </div>
+      <ul>
+        <li>Title: {props.title}</li>
+        <li>Origin: {props.origin}</li>
+      </ul>
     );
   }
 
